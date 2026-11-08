@@ -16,15 +16,22 @@ about two minutes, and shows live stats, ranks, and badges.
 ## Quick start
 
 1. Install [Python](https://www.python.org/downloads/) and **tick "Add Python to PATH"**
-   (3.12 or 3.13 recommended).
-2. Double-click **`Install Requirements.bat`** (one time).
-3. Double-click **`pirate_shop_macro.pyw`**. It opens on the **Setup** page.
+   (3.12 or 3.13 recommended). You only need Python to build the app, one time.
+2. Double-click **`Build EXE.bat`**. It takes a few minutes. When the window says
+   **SUCCESS**, you'll have **`Pirate Shop Macro.exe`** in the same folder.
+3. Double-click **`Pirate Shop Macro.exe`** and click **Yes** on the administrator prompt.
+   It opens on the **Setup** page.
 4. Press **Capture** next to each step. For every step:
    get that button on screen in Fortnite, press **F9**, then drag a box around it.
 5. When every step has a green check, open the **Dashboard** and press **START**.
 
 Stop any time with **F8** (works inside the game) or by moving the mouse to the top-left
 corner of the screen.
+
+> **Build failed, or the exe won't open?** Use the backup method instead:
+> double-click **`Install Requirements.bat`** once, then double-click
+> **`pirate_shop_macro.pyw`**. It's the exact same app. See
+> [Backup: run without the exe](#backup-run-without-the-exe).
 
 ## How it knows you're out
 
@@ -130,12 +137,25 @@ button spots to `locations.json` (next to the app). Delete a file to reset it.
   newest releases can lack compatible packages)
 - Fortnite in **Windowed Fullscreen** (borderless) so the app can see it
 
-## Make a standalone .exe (optional)
+## About the exe
 
-Double-click **`Build EXE.bat`**. It installs what it needs and creates
-`Pirate Shop Macro.exe` in the same folder. Keep the `images` folder next to the exe.
-The exe asks for administrator permission, which helps clicks register in-game.
-Rebuild after editing any code.
+`Build EXE.bat` installs what it needs and builds `Pirate Shop Macro.exe` right next to
+it. The exe has its own window, so there's no command prompt, and it asks for
+administrator permission, which helps clicks register in-game.
+
+- Keep the **`images`** folder next to the exe. The Setup page saves your pictures there.
+- Your settings, stats, and remembered button spots are saved next to the exe too.
+- If you change the code, run `Build EXE.bat` again to rebuild.
+
+## Backup: run without the exe
+
+If `Build EXE.bat` fails or your antivirus removes the exe:
+
+1. Double-click **`Install Requirements.bat`** (one time).
+2. Double-click **`pirate_shop_macro.pyw`** (or **`Start Pirate Shop Macro.bat`**).
+
+It opens the same window with the same features. Everything else in this guide applies
+the same way.
 
 ## Troubleshooting
 
@@ -148,22 +168,23 @@ Rebuild after editing any code.
 | It misses the elimination screen | Lower the Scan interval so it checks more often |
 | F9 does nothing in the wizard | Press **Capture now** on the little bar instead |
 | Clicks or keys do nothing in-game | Run as administrator; use Windowed Fullscreen |
-| Lag or high CPU | Raise the Scan interval; limit search areas with `REGIONS` in the .pyw |
-| Antivirus flags the exe | Common for programs that simulate input; build it yourself or add an exception |
-| Package install fails | Install Python 3.12 or 3.13 instead of the newest release |
+| Lag or high CPU | Raise the Scan interval; limit search areas with `REGIONS` in `pirate_shop_macro.pyw`, then rebuild |
+| Build EXE says BUILD FAILED | Read the line starting with `[ERROR]`; install Python 3.12 or 3.13 and run it again; or use the backup method |
+| Antivirus removes the exe | Common for programs that simulate input; add an exception for the folder, or use the backup method |
+| Packages won't install | Install Python 3.12 or 3.13 instead of the newest release |
 | Window looks small on a 4K screen | The layout is a fixed size; Windows display scaling doesn't enlarge it |
 
 ## Files
 
 ```
 PirateShopMacro/
-├── START HERE.txt               the 5-step version of this page
-├── pirate_shop_macro.pyw        the app
-├── Start Pirate Shop Macro.bat  alternate launcher
-├── Install Requirements.bat     installs the Python packages
-├── Build EXE.bat                builds a standalone .exe
+├── START HERE.txt               the quick version of this page
+├── Build EXE.bat                builds the app: use this first
+├── pirate_shop_macro.pyw        the app's code; also the backup way to run it
+├── Install Requirements.bat     only needed for the backup method
+├── Start Pirate Shop Macro.bat  alternate launcher for the backup method
 ├── requirements.txt             package list
-├── logo.png / icon.ico          app logo and icon
+├── logo.png / icon.ico          app logo and icon (needed to build the exe)
 ├── images/                      your button pictures (the app fills this in)
 ├── README.md
 └── LICENSE
