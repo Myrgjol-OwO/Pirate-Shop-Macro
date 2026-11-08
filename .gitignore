@@ -1,0 +1,8 @@
+locations.json
+settings.json
+stats.json
+build/
+dist/
+*.spec
+__pycache__/
+*.exe
